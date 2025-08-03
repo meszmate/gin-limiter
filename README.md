@@ -55,18 +55,18 @@ func main() {
 			})
 		},
 	}
-    rl := ratelimit.Middleware(store, opts)
+    	rl := ratelimit.Middleware(store, opts)
 
 	r := gin.Default()
 
-    // Apply for all endpoints
-    r.Use(rl)
+    	// Apply for all endpoints
+    	r.Use(rl)
 
 	r.GET("/profile", func(c *gin.Context) {
 		c.JSON(200, gin.H{"user": "meszmate"})
 	})
 
-    // Apply for specific endpoint(s):
+    	// Apply for specific endpoint(s):
 	// r.GET("/endpoint", rl, func(c *gin.Context) {
 	// 	c.JSON(200, gin.H{"user": "meszmate"})
 	// })
